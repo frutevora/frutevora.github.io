@@ -49,7 +49,7 @@
   </header>
 
   <div class="produtoImg" style="display: flex;float:center; margin-top: 40px;margin-bottom: 40px;text-align: center; justify-content: center;">
-    <img src="images/EmbalagemBase.png">
+    <img id="productImage" src="images/EmbalagemBase.png">
     <div style="margin-left: 20px; float: left; width: 700px; height: 500px; position: relative;">
         <h3 style="float: left;font-weight: bold;">Personalizado</h3>
         <hr style="width:100%; margin:0">
@@ -57,13 +57,13 @@
         <p style="text-align: left; width: 100%;float: left;margin-bottom: 10px;">
             <span>
                 <bdi>
-                    <span style="font-size: 40px;color: #57BF6D;margin-right: 5px;">€2,50</span>
+                    <span style="font-size: 40px;color: #57BF6D;margin-right: 5px;">€4,00</span>
                 </bdi>
             </span>
             <small style="font-size: 30px;color: #57BF6D;">IVA incluido</small>
         </p>
         <p>
-          <h4 style="text-align: left;margin-bottom: 20px;">Opções</h4>
+          <h5 style="text-align: left;margin-bottom: 20px;">Opções</h5>
             <!-- <label class="" style="text-align: left;justify-content: left;display: flex;">
             <input type="number" value="1" min="1" max="999" style="margin-right: 10px;margin-bottom: 10px;">Cenoura
             </label>
@@ -76,19 +76,49 @@
             <label class="" style="text-align: left;justify-content: left;display: flex;">
               <input type="number" value="1" min="1" max="999" style="margin-right: 10px;margin-bottom: 10px;">Cenoura
             </label> -->
-            <div style="justify-content: left;display: flex;margin-bottom: 20px;">
-              <label for="cars" style="margin-right: 20px;">Selecionar:</label>
-              <select name="cars" id="cars" style="width: 200px;">
-                <option value="volvo">Cenoura</option>
-                <option value="saab">Banana</option>
+            <div style="justify-content: left;display: flex;margin-bottom: 10px;">
+              <label for="fruits" style="margin-right: 20px;">Selecionar:</label>
+              <select id="fruits" style="width: 200px;" onchange="changeImage()">
+                <option value="images/EmbalagemBase.png">Normal</option>
+                <option value="images/EmabalagemVerde.png">Cor verde</option>
+                <option value="images/EmbalagemVermelha.png">Cor vermelha</option>
+                <option value="images/EmbalagemAmarela.png">Cor amarela</option>
+                <option value="images/EmbalagemAzul.png">Cor azul</option>
+                <option value="images/EmabalagemRosa.png">Cor rosa</option>
               </select>
             </div>
             <div style="justify-content: left;display: flex;">
               <label for="cars" style="margin-right: 20px;">Selecionar:</label>
-              <select name="cars" id="cars" style="width: 200px;">
-                <option value="volvo">Cor verde</option>
-                <option value="saab">Cor vermelha</option>
-              </select>
+              <form>
+                <div class="multiselect">
+                  <div class="selectBox" onclick="showCheckboxes()">
+                    <select onchange="changeImage()">
+                      <option>Selecionar uma opção</option>
+                    </select>
+                    <div class="overSelect"></div>
+                  </div>
+                  <div id="checkboxes">
+                    <label for="one" style="display: flex; justify-content: left;">
+                      <input type="checkbox" id="one" />Maçã</label>
+                    <label for="two" style="display: flex; justify-content: left;">
+                      <input type="checkbox" id="two" />Banana</label>
+                    <label for="three" style="display: flex; justify-content: left;">
+                      <input type="checkbox" id="three" />Beterraba</label>
+                    <label for="four" style="display: flex; justify-content: left;">
+                      <input type="checkbox" id="four" />Cenoura</label>
+                    <label for="five" style="display: flex; justify-content: left;">
+                      <input type="checkbox" id="five" />Groselha negra</label>
+                    <label for="six" style="display: flex; justify-content: left;">
+                      <input type="checkbox" id="six" />Tomate</label>
+                    <label for="seven" style="display: flex; justify-content: left;">
+                        <input type="checkbox" id="seven" />Mirtilo</label>
+                    <label for="eight" style="display: flex; justify-content: left;">
+                        <input type="checkbox" id="eight" />Couve Lombarda</label>
+                    <label for="nine" style="display: flex; justify-content: left;">
+                        <input type="checkbox" id="nine" />Uva-verde</label>
+                  </div>
+                </div>
+              </form>
             </div>
         </p>
         <div style="width:100%; position: absolute; bottom:0">
@@ -143,46 +173,26 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
-          const swiper1 = new Swiper('.swiper-container1', {
-              slidesPerView: 4,
-              spaceBetween: 10,
-  
-              // If we need pagination
-              pagination: {
-                  el: '.swiper-pagination',
-                  clickable: true,
-              },
-  
-              // Navigation arrows
-              navigation: {
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
-              },
-          });
-          
-          const swiper = new Swiper('.swiper', {
-              autoplay: {
-                  delay: 3000,
-                  disableOnInteraction: false,
-              },
-  
-              // Optional parameters
-              loop: true,
-  
-              // If we need pagination
-              pagination: {
-                  el: '.swiper-pagination',
-                  clickable: true,
-              },
-  
-              // Navigation arrows
-              navigation: {
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
-              },
-          });
+      var expanded = false;
+
+      function showCheckboxes() {
+        var checkboxes = document.getElementById("checkboxes");
+        if (!expanded) {
+          checkboxes.style.display = "block";
+          expanded = true;
+        } else {
+          checkboxes.style.display = "none";
+          expanded = false;
+        }
+      }
+
+      function changeImage() {
+        var fruitImage = document.getElementById("productImage");
+        var fruitSelect = document.getElementById("fruits");
+        var selectedFruit = fruitSelect.value;
+        fruitImage.src = selectedFruit;
+      }
     </script>
  </footer>
 </body>

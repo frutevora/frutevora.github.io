@@ -59,13 +59,6 @@
                 <img src="images/sumosLogo.png">
             </div>
         </div>
-
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
     </div>
   </div>
 
@@ -133,104 +126,30 @@
             </div>
         </div>
     </div>
-</div>
+  </div>
 
+  <div class="swiper" style="margin-top:10px">
+    <h3 style="color: gray; font-weight: bold; float: left;">Perzsonalizar</h3>
+  </div>
+
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Swiper -->
+    <div class="swiper-container1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="margin: 0px;background-color:white;">
+              <a href="./personalizado.html">
+                <img src="images/EmbalagemBase.png" style="height: 200px;">
+              </a>
+        </div>
+    </div>
+  </div>
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
         const swiper1 = new Swiper('.swiper-container1', {
             slidesPerView: 4,
             spaceBetween: 10,
-
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        const swiper2 = new Swiper('.swiper-container2', {
-            slidesPerView: 5,
-            spaceBetween: 10,
-
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        const swiper3 = new Swiper('.swiper-container3', {
-            slidesPerView: 2,
-            spaceBetween: 10,
-
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        const swiper4 = new Swiper('.swiper-container4', {
-            slidesPerView: 2,
-            spaceBetween: 10,
-
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        const swiper5 = new Swiper('.swiper-container5', {
-            slidesPerView: 5,
-            spaceBetween: 10,
-
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        const swiper = new Swiper('.swiper', {
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-
-            // Optional parameters
-            loop: true,
 
             // If we need pagination
             pagination: {
